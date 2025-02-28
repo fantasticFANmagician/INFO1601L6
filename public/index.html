@@ -15,10 +15,39 @@
 
     <span id="result"></span>
 
+    <input id="myBtn" type="button" onclick="myFun()" value="click me"/>
+
     <script>
+      function myFun(){
+        alert("hello");  
+      }
 
+      function myFun2(){
+        console.log("myFun2 called");
+      }
 
+     //receives the event parameter from addEventListener high order function
+      function logEventType(event){
+        console.log(event.type);
+      }
+
+      let myBtn = document.querySelector("#myBtn");
+
+      //attach myFun2 in addition to myFun to the click event of myBtn
+      myBtn.addEventListener("click", myFun2);
+
+      //There are other events such as mouseover and mouseout
+
+      //Any callback passed to addeventListener receives an event object
+      myBtn.addEventListener("mouseover", logEventType);//logs 'mouseover'
+      myBtn.addEventListener("mouseout", logEventType);// logs 'mouseout'
+     //these events will fire when the mouse pointer hovers/passes over the button
+
+      function loaded(){
+        console.log
+      }
     </script>
+    
     <script src="script.js"></script>
   </body>
 </html>
