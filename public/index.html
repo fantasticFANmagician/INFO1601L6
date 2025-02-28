@@ -13,6 +13,23 @@
     <input type="button" value="confirm" onclick="confirmFun()"/>
     <input type="button" value="prompt" onclick="promptFun()"/>
 
+    <script>
+      function alertFun() {
+        alert("This is an alert!");
+        document.getElementById("result").textContent = "Alert was shown";
+      }
+      
+      function confirmFun() {
+        const result = confirm("Please confirm this action");
+        document.getElementById("result").textContent = "Confirm result: " + result;
+      }
+      
+      function promptFun() {
+        const input = prompt("Please enter something:", "Default text");
+        document.getElementById("result").textContent = "You entered: " + input;
+      }
+    </script>
+
     <span id="result"></span>
 
     <input id="myBtn" type="button" onclick="myFun()" value="click me"/>
@@ -44,8 +61,17 @@
      //these events will fire when the mouse pointer hovers/passes over the button
 
       function loaded(){
-        console.log
+        console.log("img loaded");
       }
+      
+      // Add an image and attach the loaded function to its load event
+      window.onload = function() {
+        const img = document.createElement("img");
+        img.src = "https://via.placeholder.com/150";
+        img.alt = "Placeholder image";
+        img.addEventListener("load", loaded);
+        document.body.appendChild(img);
+      };
     </script>
     
     <script src="script.js"></script>
